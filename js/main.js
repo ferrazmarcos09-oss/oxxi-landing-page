@@ -216,14 +216,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- CTAs WhatsApp ----------
-  const numeroWhatsApp = '5588988028037'; // TODO: confirmar se é esse o número certo pra campanha
+  // ---------- botão flutuante: único CTA que vai pro WhatsApp ----------
+  const numeroWhatsApp = '5588988028037'; // confirmado com o cliente
   document.querySelectorAll('.js-whatsapp-cta').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const msg = encodeURIComponent('Oi! Quero garantir minha vaga na pré-venda da Oxxi + Hyrox.');
       window.open(`https://wa.me/${numeroWhatsApp}?text=${msg}`, '_blank');
     });
+  });
+
+  // ---------- CTAs de venda direta (EVO) ----------
+  const linkEvo = 'https://SEU-LINK-EVO-AQUI'; // TODO: colar o link real de vendas do EVO
+  document.querySelectorAll('.js-evo-cta').forEach((btn) => {
+    btn.setAttribute('href', linkEvo);
+    btn.setAttribute('target', '_blank');
+    btn.setAttribute('rel', 'noopener');
   });
 
   // ---------- botão flutuante de WhatsApp: bolha "Esclareça suas dúvidas!" ----------
