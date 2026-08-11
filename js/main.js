@@ -216,14 +216,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- CTAs WhatsApp (placeholder — ajustar número real) ----------
+  // ---------- CTAs WhatsApp ----------
+  const numeroWhatsApp = '5588988028037'; // TODO: confirmar se é esse o número certo pra campanha
   document.querySelectorAll('.js-whatsapp-cta').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const numero = '55XXXXXXXXXXX'; // TODO: número real do WhatsApp da Oxxi
       const msg = encodeURIComponent('Oi! Quero garantir minha vaga na pré-venda da Oxxi + Hyrox.');
-      window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+      window.open(`https://wa.me/${numeroWhatsApp}?text=${msg}`, '_blank');
     });
   });
+
+  // ---------- botão flutuante de WhatsApp: bolha "Esclareça suas dúvidas!" ----------
+  const waBubble = document.getElementById('wa-float-bubble');
+  const waBubbleClose = document.getElementById('wa-float-bubble-close');
+  if (waBubble) {
+    let idleTimer = null;
+    let bubbleShown = false;
+
+    const isNearBottom = () => {
+      return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+    };
+
+    const resetIdleTimer = () => {
+      clearTimeout(idleTimer);
+      if (bubbleShown) return;
+      if (isNearBottom()) {
+        idleTimer = setTimeout(() => {
+          waBubble.classList.add('wa-float__bubble--visible');
+          bubbleShown = true;
+        }, 5000);
+      }
+    };
+
+    window.addEventListener('scroll', resetIdleTimer, { passive: true });
+    document.addEventListener('click', resetIdleTimer);
+    document.addEventListener('touchmove', resetIdleTimer, { passive: true });
+    resetIdleTimer();
+
+    waBubbleClose?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      waBubble.classList.remove('wa-float__bubble--visible');
+      bubbleShown = true;
+    });
+  }
 
 });
