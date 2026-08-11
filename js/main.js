@@ -235,37 +235,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- botão flutuante de WhatsApp: bolha "Esclareça suas dúvidas!" ----------
+  // aparece 10s depois que a página carrega, não depende de rolar até o final
   const waBubble = document.getElementById('wa-float-bubble');
   const waBubbleClose = document.getElementById('wa-float-bubble-close');
   if (waBubble) {
-    let idleTimer = null;
-    let bubbleShown = false;
-
-    const isNearBottom = () => {
-      return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
-    };
-
-    const resetIdleTimer = () => {
-      clearTimeout(idleTimer);
-      if (bubbleShown) return;
-      if (isNearBottom()) {
-        idleTimer = setTimeout(() => {
-          waBubble.classList.add('wa-float__bubble--visible');
-          bubbleShown = true;
-        }, 5000);
-      }
-    };
-
-    window.addEventListener('scroll', resetIdleTimer, { passive: true });
-    document.addEventListener('click', resetIdleTimer);
-    document.addEventListener('touchmove', resetIdleTimer, { passive: true });
-    resetIdleTimer();
+    const showTimer = setTimeout(() => {
+      waBubble.classList.add('wa-float__bubble--visible');
+    }, 10000);
 
     waBubbleClose?.addEventListener('click', (e) => {
       e.stopPropagation();
       e.preventDefault();
+      clearTimeout(showTimer);
       waBubble.classList.remove('wa-float__bubble--visible');
-      bubbleShown = true;
     });
   }
 
