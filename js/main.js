@@ -216,15 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- CTA WhatsApp (placeholder — ajustar número real) ----------
-  const waBtn = document.getElementById('cta-whatsapp');
-  if (waBtn) {
-    waBtn.addEventListener('click', (e) => {
+  // ---------- CTAs WhatsApp (placeholder — ajustar número real) ----------
+  document.querySelectorAll('.js-whatsapp-cta').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
       const numero = '55XXXXXXXXXXX'; // TODO: número real do WhatsApp da Oxxi
       const msg = encodeURIComponent('Oi! Quero garantir minha vaga na pré-venda da Oxxi + Hyrox.');
       window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
     });
-  }
+  });
 
 });
