@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- botão flutuante: único CTA que vai pro WhatsApp ----------
-  const numeroWhatsApp = '5588988028037'; // confirmado com o cliente
+  const numeroWhatsApp = '5588936180035'; // confirmado com o cliente
   document.querySelectorAll('.js-whatsapp-cta').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
