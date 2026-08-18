@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- CTAs de venda direta (EVO) ----------
-  const linkEvo = 'https://SEU-LINK-EVO-AQUI'; // TODO: colar o link real de vendas do EVO
+  const linkEvo = 'https://evo-totem.w12app.com.br/oxxiacademia/1/site/fjyE53geG4GPdCgMT5eAeA%5BEQUAL%5D%5BEQUAL%5D';
   document.querySelectorAll('.js-evo-cta').forEach((btn) => {
     btn.setAttribute('href', linkEvo);
     btn.setAttribute('target', '_blank');
