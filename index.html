@@ -74,8 +74,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="reveal">E o melhor: o que vem por aí é o maior capítulo dessa história até agora.</p>
       </div>
       <div class="split__media reveal">
-        <div class="media-card media-card--wide">
-          <img src="assets/historia/grupo-24-anos.jpeg" alt="Comunidade Oxxi reunida em frente à parede com o logo da academia, após desafio em duplas" loading="lazy">
+        <div class="media-card media-card--video" id="historia-video-card">
+          <video
+            id="historia-video"
+            poster="assets/historia/oxxi-hyrox-video-poster.jpg"
+            preload="none"
+            playsinline
+            muted
+          >
+            <source src="assets/historia/oxxi-hyrox-video.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-play-btn" id="historia-video-play" aria-label="Assistir: por que a Oxxi decidiu trazer o Hyrox">
+            <span class="video-play-btn__icon">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
         </div>
       </div>
     </div>

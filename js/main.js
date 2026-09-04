@@ -241,4 +241,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- vídeo institucional (seção história): clique pra tocar com som ----------
+  const historiaVideoCard = document.getElementById('historia-video-card');
+  const historiaVideo = document.getElementById('historia-video');
+  const historiaVideoPlay = document.getElementById('historia-video-play');
+  if (historiaVideoCard && historiaVideo && historiaVideoPlay) {
+    historiaVideoPlay.addEventListener('click', () => {
+      historiaVideo.muted = false;
+      historiaVideo.controls = true;
+      historiaVideo.play();
+      historiaVideoCard.classList.add('is-playing');
+    });
+    historiaVideo.addEventListener('pause', () => {
+      historiaVideoCard.classList.remove('is-playing');
+    });
+    historiaVideo.addEventListener('ended', () => {
+      historiaVideoCard.classList.remove('is-playing');
+      historiaVideo.controls = false;
+    });
+  }
+
 });
