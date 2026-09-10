@@ -216,14 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- CTAs de venda direta (EVO) ----------
-  const linkEvo = 'https://evo-totem.w12app.com.br/oxxiacademia/1/site/fjyE53geG4GPdCgMT5eAeA%5BEQUAL%5D%5BEQUAL%5D';
-  document.querySelectorAll('.js-evo-cta').forEach((btn) => {
-    btn.setAttribute('href', linkEvo);
-    btn.setAttribute('target', '_blank');
-    btn.setAttribute('rel', 'noopener');
-  });
-
   // ---------- botão flutuante de WhatsApp: bolha "Esclareça suas dúvidas!" ----------
   // aparece 10s depois que a página carrega, não depende de rolar até o final
   const waBubble = document.getElementById('wa-float-bubble');
